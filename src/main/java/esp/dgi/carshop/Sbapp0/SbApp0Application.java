@@ -13,5 +13,16 @@ public class SbApp0Application {
 
 
 	}
+@RestController
+    @RequestMapping("/hello")
+    class SbAppController {
 
+        @Value("${fullname: Fama}")
+        private String fullname;
+
+        @GetMapping
+        String getFullname() {
+            return "Hello " + this.fullname + "!";
+        }
+    }
 }
